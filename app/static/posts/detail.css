@@ -1,0 +1,94 @@
+
+/* Основные стили для body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-image: url('/static/posts/list.jpg');
+    background-size: cover; /* Масштабирование изображения, чтобы оно заполнило весь фон */
+    background-position: center; /* Центрирование изображения */
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Стили заголовков */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-align: center; /* Центрирование текста */
+    color: #101029;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #101029;
+}
+
+/* Стили для пустого сообщения */
+p {
+    margin-bottom: 10px; /* Отступ снизу */
+    color: #101029; /* Синий цвет для заголовка */
+    font-size: 18px; /* Увеличенный размер шрифта */
+    font-weight: bold; /* Жирный шрифт *
+    border: 2px solid #101029; /* Рамка вокруг элемента */
+    padding: 10px; /* Отступ внутри рамки */
+    border-radius: 5px; /* Закругленные углы рамки (по желанию) */
+    background-color: white; /* Белый цвет фона внутри рамки */
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #070b0f; /* Цвет кнопки */
+    color: white; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Закругленные углы */
+    transition: background-color 0.3s; /* Плавный переход при наведении */
+}
+
+/* Стили для изображения */
+img {
+    max-width: 100%; /* Ограничение ширины */
+    height: auto; /* Автоматическая высота */
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+/* Стили для даты и информации о комментариях */
+.date, .info {
+    margin-bottom: 10px; /* Отступ снизу */
+    color: #101029; /* Синий цвет для заголовка */
+    font-size: 18px; /* Увеличенный размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+/* Стили для комментариев */
+.comment {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+/* Стили для тегов */
+.tags {
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.tags a {
+    color: #007BFF; /* Синий цвет для ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.tags a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+/* Стили для списка рекомендованных статей */
+ul {
+    margin-top: 10px; /* Отступ сверху */
+}
+
+ul li {
+    margin-bottom: 5px; /* Отступы между элементами списка */
+}

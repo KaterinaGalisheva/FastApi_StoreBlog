@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='sign_in/sign_in1.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='footer.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='navigation.css') }}">
+   </head>
+<body>
+    {% include 'navigation.html' %}
+
+
+    <h1>Регистрация</h1>
+
+
+    <div class="container">
+      <div class="text-danger font-weight-bold">
+        {% for error in errors %}
+          <li>{{error}}</li>
+        {% endfor %}
+      </div>   
+    </div>
+
+        
+    
+    <!-- Форма создания нового пользователя -->  
+    
+    <div>
+      <form method="POST">
+        <div>
+          <label>Username</label>
+          <input type="text" required class="form-control" name="username" value="{{username}}" placeholder="username">
+        </div>
+        <div>
+          <label>Email</label>
+          <input type="text" required placeholder="Your email" name="email" value="{{email}}" class="form-control">
+        </div>
+        <div>
+          <label>Birthdate</label>
+          <input type="text" required placeholder="Your birthdate" name="birthdate" value="{{birthdate}}" class="form-control">
+        </div>
+        <div>
+          <label>Password1</label>
+          <input type="password" required placeholder="Choose a secure password1" value="{{password1}}" name="password1" class="form-control">
+        </div>
+        <div>
+          <label>Password2</label>
+          <input type="password" required placeholder="Choose a secure password2" value="{{password2}}" name="password2" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>    
+    </div>
+
+
+    {% include 'footer.html' %}
+</body>
+</html>

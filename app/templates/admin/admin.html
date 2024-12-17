@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админка</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='navigation.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='admin/admin1.css') }}">
+</head>
+<body>
+    {% include 'navigation.html' %}
+    
+    <h1>Административная панель</h1>
+    <nav>
+        <a href="/admin/all_users" class="nav-button">Пользователи</a>
+        <a href="/admin/store_all" class="nav-button">Товары</a>
+        <a href="/admin/all_posts" class="nav-button">Посты</a>
+        <a href="/admin/all_comments" class="nav-button">Комментарии</a>
+    </nav>
+
+    <div id="create">
+        {% block create %}{% endblock %}
+    </div>
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+</html>

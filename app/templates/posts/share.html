@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Share</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='posts/shsre.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='footer.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='navigation.css') }}">
+    </head>
+    <body>
+        {% include 'navigation.html' %}
+    
+        <h1>Поделиться статьей</h1>
+    
+        
+        <h1></h1>
+        {% if sent %}
+            <div class="alert alert-success">
+                Ваше сообщение успешно отправлено!
+            </div>
+        {% else %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+        
+            <div>
+                <label for="{{ form.name.id_for_label }}">Name:</label>
+                {{ form.name }}
+                {{ form.name.errors }}
+            </div>
+        
+            <div>
+                <label for="{{ form.email.id_for_label }}">Email:</label>
+                {{ form.email }}
+                {{ form.email.errors }}
+            </div>
+
+            <div>
+                <label for="{{ form.email.id_for_label }}">To:</label>
+                {{ form.to }}
+                {{ form.to.errors }}
+            </div>
+        
+            <div>
+                <label for="{{ form.comments.id_for_label }}">Comments:</label>
+                {{ form.comments }}
+                {{ form.comments.errors }}
+            </div>
+        
+            <button type="submit">Share</button>
+        </form>
+        
+        {% endif %}
+
+    {% include 'footer.html' %}
+</body>
+</html>

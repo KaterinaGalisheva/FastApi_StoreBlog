@@ -1,0 +1,47 @@
+/* Стили для кнопки */
+/* Стили для кнопок */
+.button-container {
+    text-align: center; /* Центрируем кнопки */
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #070b0f; /* Цвет кнопки */
+    color: white; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Закругленные углы */
+    transition: background-color 0.3s; /* Плавный переход при наведении */
+}
+
+/* Стили для заголовка */
+h2 {
+    color: #343a40; /* Цвет текста заголовка */
+}
+
+/* Стили для таблицы */
+.table {
+    margin-top: 20px; /* Отступ сверху */
+    border-collapse: collapse; /* Убираем двойные границы */
+}
+
+.table th, .table td {
+    text-align: center; /* Центрирование текста в ячейках */
+    padding: 15px; /* Отступы внутри ячеек */
+}
+
+.table th {
+    background-color: #f8f9fa; /* Цвет фона заголовков таблицы */
+    color: #495057; /* Цвет текста заголовков */
+}
+
+.table tr:hover {
+    background-color: #f1f1f1; /* Цвет фона строки при наведении */
+}
+
+/* Стили для изображений в таблице */
+.table img {
+    max-width: 100%; /* Максимальная ширина изображения */
+    height: auto; /* Автоматическая высота */
+}

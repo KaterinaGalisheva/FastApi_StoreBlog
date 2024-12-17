@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='store/store.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='footer.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='navigation.css') }}">
+</head>
+<body>
+    {% include 'navigation.html' %}
+    <h1>Корзина</h1>
+    <ul>
+        {% if products %}
+            {% for product in products %}
+                <img src="{{ product.photo.url }}" alt="{{ product.name }}" style="max-width: 200px; max-height: 200px;">
+                <p>{{ product.title }} - {{ product.cost }} руб.</p>
+            </li>
+            {% endfor %}
+        {% else %}
+            <p>Корзина пуста.</p>
+        {% endif %}
+    </ul>
+    <h2>Итого: {{ total_cost }} руб.</h2>
+    <h1>В режиме тестирования оформление заказа недоступно</h1>
+    <a href="#" class="button">Оформить заказ</a>
+
+    <!-- Кнопка для очистки корзины -->
+    <form action="/clear-cart" method="post">
+        <button type="submit" class="button">Очистить корзину</button>
+    </form>
+
+    {% include 'footer.html' %}
+</body>
+</html>

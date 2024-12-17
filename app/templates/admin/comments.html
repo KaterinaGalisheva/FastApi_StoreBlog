@@ -1,0 +1,28 @@
+{% extends "admin/admin.html" %}
+
+{% block content %}
+<h2>Список комментариев</h2>
+<table style="width: 100%; margin-top: 20px; border-collapse: collapse;">
+    <tr>
+        <th>ID</th>
+        <th>Post ID</th>
+        <th>Имя</th>
+        <th>Действия</th>
+    </tr>
+    {% for comment in comments %}
+    <tr>
+        <td>{{ comment.id }}</td>
+        <td>{{ comment.post_id }}</td>
+        <td>{{ comment.name }}</td>
+        <td>
+            <form action="{{ url_for('comment_delete', comment_id_id=Comment.id) }}" method="post"></form>
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit">Удалить</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+
+

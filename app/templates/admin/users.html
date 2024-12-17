@@ -1,0 +1,57 @@
+{% extends "admin/admin.html" %}
+
+{% block create %}
+<!-- Форма создания нового пользователя -->
+<div style="background-color: white; padding: 20px; border: 1px solid #ccc; z-index: 1000; margin: 20px;">
+    <h2>Создать нового пользователя</h2>
+    <form action="{{ url_for('create_user') }}" method="POST"> 
+        <div>
+            <label>Username</label>
+            <input type="text" required class="form-control" name="username" value="{{username}}" placeholder="username">
+          </div>
+          <div>
+            <label>Email</label>
+            <input type="text" required placeholder="Your email" name="email" value="{{email}}" class="form-control">
+          </div>
+          <div>
+            <label>Birthdate</label>
+            <input type="text" required placeholder="Your birthdate" name="birthdate" value="{{birthdate}}" class="form-control">
+          </div>
+          <div>
+            <label>Password</label>
+            <input type="password" required placeholder="Choose a secure password1" value="{{password}}" name="password" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>        
+    </form>
+
+{% endblock %}
+
+{% block content %}
+<h2>Список пользователей</h2>
+<table style="width: 100%; margin-top: 20px; border-collapse: collapse;">
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Email</th>
+        <th>Действия</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+            <form action="{{ url_for('update_user', user_id_id=User.id) }}" method="POST">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit">Редактировать</button>
+            </form>
+            <form action="{{ url_for('user_delete', user_id_id=User.id) }}" method="post"></form>
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit">Удалить</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

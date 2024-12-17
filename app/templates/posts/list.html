@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spaceposts</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='posts/list.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='footer.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='navigation.css') }}">
+</head>
+<body>
+    {% include 'navigation.html' %}
+
+    <h1>Увлекательные статьи про космос</h1>
+
+    
+    <h1></h1>
+    {% if posts %}
+    <ul>
+        {% for post in posts %}
+            {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" />
+            {% endif %}
+            <h2 class="post-title">
+                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            </h2>
+            <p class="tags">Tags: {{ post.tags | join(", ") }}</p> 
+            <p class="date">Published {{ post.publish }} by {{ post.author }}</p>  
+            <p>{{ post.body }}</p> 
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>No posts available.</p>  
+    {% endif %}
+    
+    {% include 'paginator.html' %} 
+
+    {% include 'footer.html' %}
+    
+</body>
+</html>
